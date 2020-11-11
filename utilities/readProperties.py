@@ -4,6 +4,7 @@ config = configparser.RawConfigParser()
 
 config.read(".\\Configurations\\config.ini")
 
+
 class ReadConfig:
     @staticmethod
     def getApplicationUrl():
@@ -12,7 +13,7 @@ class ReadConfig:
 
     @staticmethod
     def getUseremail():
-        username = config.get('common info', 'useremail')
+        username = config.get('common info', 'username')
         return username
 
     @staticmethod
