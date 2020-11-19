@@ -7,6 +7,7 @@ from utilities.customLogger import LogGen
 import string
 import random
 
+
 class Test_003_AddCustomer:
     baseURL = ReadConfig.getApplicationURL()
     username = ReadConfig.getUseremail()

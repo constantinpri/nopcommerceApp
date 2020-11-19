@@ -7,10 +7,12 @@ from utilities import XLUtils
 import time
 
 class Test_002_DDT_Login:
-    baseURL = ReadConfig.getApplicationUrl()
+    baseURL = ReadConfig.getApplicationURL()
     path = ".//TestData/Book1.xlsx"
     logger = LogGen.loggen()
 
+
+    @pytest.mark.regression
     def test_login_ddt(self, setup):
         self.logger.info("************* Test_002_DDT_Login ************* ")
         self.logger.info("************* Verifying Login DDT test ************* ")
