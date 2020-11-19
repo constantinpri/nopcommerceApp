@@ -43,16 +43,17 @@ class AddCustomer:
         self.driver.find_element_by_xpath(self.txtPassword_xpath).send_keys(password)
 
     def setCustomerRoles(self,role):
-        self.driver.find_element_by_xpath(self.txtcustomerRoles_xpath).click()
+        #self.driver.find_element_by_xpath(self.txtcustomerRoles_xpath).click()
         time.sleep(3)
-        if role == 'Registered':
-            self.listitem = self.driver.find_element_by_xpath(self.lstitemRegistered_xpath)
-        elif role=='Administrators':
+        if role == 'Administrators':
+           self.listitem = self.driver.find_element_by_xpath(self.lstitemRegistered_xpath)
+        elif role=='Guests':
             self.listitem=self.driver.find_element_by_xpath(self.lstitemAdministrators_xpath)
         elif role=='Guests':
             # Here user can be Registered( or) Guest, only one
             time.sleep(3)
             self.driver.find_element_by_xpath("//*[@id='SelectedCustomerRoleIds_taglist']/li/span[2]").click()
+            self.driver.find_element_by_xpath(self.txtcustomerRoles_xpath).click()
             self.listitem = self.driver.find_element_by_xpath(self.lstitemGuests_xpath)
         elif role=='Registered':
             self.listitem = self.driver.find_element_by_xpath(self.lstitemRegistered_xpath)
@@ -61,8 +62,9 @@ class AddCustomer:
         else:
             self.listitem = self.driver.find_element_by_xpath(self.lstitemGuests_xpath)
         time.sleep(3)
+
         #self.listitem.click()
-        self.driver.execute_script("arguments[0].click();", self.listitem)
+        #self.driver.execute_script("arguments[0].click();", self.listitem)
 
     def setManagerOfVendor(self,value):
         drp=Select(self.driver.find_element_by_xpath(self.drpmgrOfVendor_xpath))
